@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
+	<!--	<meta name="description" content="">-->
+	<!--	<meta name="HandheldFriendly" content="True">-->
+	<!--	<meta name="MobileOptimized" content="320">-->
 	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>使用手册 | GoPay</title>
 	<link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
@@ -22,59 +22,49 @@
 			<img style="height: 50px;width: 50px; margin-left: 20px" src="img/gopay.png" alt="GoPay"/>
 			<span style="margin-left: 10px">GoPay</span>
 		</div>
-		<!--        <div class="pull-right">-->
-		<!--            <a href="#/free-documentation-html-template-docweb" target="_blank" class="btn btn-download"><img-->
-		<!--                    src="img/download.png" width="25" alt="Download Free Documentation Template"/> Download Now</a>-->
-		<!--        </div>-->
 	</nav>
 	<header>
-		<div class="container">
-			<h2 class="lone-header">微信支付（WeChat）、支付宝支付（Alipay）的Go版本SDK</h2>
+		<div>
+			<div class="nav-title">
+				<h2 class="lone-header" style="margin-left: 40px;">微信支付（WeChat）、支付宝支付（Alipay）的Go版本SDK</h2>
+				<h2 class="lone-header" style="margin-right: 40px;">jerry@gopay.ink</h2>
+			</div>
 		</div>
 	</header>
 	<section>
 		<div class="container">
 			<ul class="docs-nav">
-				<li><strong>Getting Started</strong></li>
+				<li><strong>概述</strong></li>
 				<li><a href="#introduce" class="cc-active">简介</a></li>
 				<li><a href="#install" class="cc-active">安装</a></li>
 				<li><a href="#license" class="cc-active">License</a></li>
 				<li class="separator"></li>
-				<li><strong>Customization</strong></li>
-				<li><a href="#view_type" class="cc-active">View Type</a></li>
+				<li><strong>微信</strong></li>
+				<li><a href="#wechat_tip" class="cc-active">声明</a></li>
+				<li><a href="#wechat_api" class="cc-active">微信支付API</a></li>
+				<li><a href="#gopay_wechat_api" class="cc-active">GoPay微信公共API</a></li>
 				<li><a href="#animation_style" class="cc-active">Animation Styles</a></li>
 				<li><a href="#bars_text" class="cc-active">Bars Text</a></li>
 				<li><a href="#vote_counter" class="cc-active">Vote Counter</a></li>
+				<li><strong>支付宝</strong></li>
 				<li><a href="#rating_icons" class="cc-active">Rating Icons</a></li>
 				<li><a href="#rating_titles" class="cc-active">Rating Titles</a></li>
 				<li><a href="#bar_colors" class="cc-active">Bar Colors</a></li>
 			</ul>
 			<div class="docs-content">
-				<h2> Getting Started</h2>
 				<!--简介-->
 				<h3 id="introduce"> 简介</h3>
-				<p> Are you listening to your customers?</p>
-
-				<p> As they say: You cannot improve what you cannot measure; but the paradox is you
-					cannot measure everything – happiness, hatred, anger… but you can measure customer
-					satisfaction. Yes, you can measure customer satisfaction by analyzing likes and
-					dislikes of your customers. You can gauge popularity of your website or products.
-					You can also:</p>
+				<p> 微信支付（WeChat）、支付宝支付（Alipay）的Go版本SDK</p>
+				<p> 技术栈：</p>
 				<ul>
-					<li>See how many visitors like the new design of your website or logo</li>
-					<li>Analyze what your readers want to see on your blog</li>
-					<li>Understand how helpful the content on your support forum or website is</li>
-					<li>Know the latest trends and user’s opinion before launching a new product or service</li>
+					<li><a href="https://golang.google.cn" target="_blank">Golang</a></li>
+					<li><a href="https://github.com/parnurzeal/gorequest" target="_blank">gorequest</a></li>
 				</ul>
-				<p> Opineo allows you to do all of this and much more without signing up for an account
-					or hire an expert. This DIY tool enables you to listen to your customers’ voice
-					easily and instantly. All you have to do is go online, design your widget and place
-					it on your website. </p>
+				<!--安装-->
 				<h3 id="install"> 安装</h3>
-				<p> Opineo allows you to do all of this and much more without signing up for an account
-					or hire an expert. This DIY tool enables you to listen to your customers’ voice
-					easily and instantly. All you have to do is go online, design your widget and place
-					it on your website. </p>
+				<div>
+					<pre><code class="language-bash">go get -u github.com/iGoogle-ink/gopay</code></pre>
+				</div>
 				<!--License-->
 				<h3 id="license"> License</h3>
 				<div style="padding:1px 30px 1px 30px;background-color: #F5F5F5">
@@ -92,78 +82,98 @@
 						limitations under the License.</p>
 				</div>
 				<hr>
-				<h2> Customizing Opineo</h2>
-				<p> Before you make any cusomization or even start using Opineo create a 'div' element
-					and assign it some id. Now add references to necessary Javascrip files e.g.</p>
-				<ul>
-					<li>A reference to latest jQuery library</li>
-					<li>A reference to Opineo script file sudo nano opineo.js</li>
+				<!--声明-->
+				<h3 id="wechat_tip"> 声明</h3>
+				<p style="font-weight: bold">
+					<text style="color: red">注意：</text>
+					具体参数根据请求的不同而不同，请参考微信官方文档的参数说明！
+				</p>
+				<p style="font-weight: bold">参考文档：<a href="https://pay.weixin.qq.com/wiki/doc/api/index.html"
+													 target="_blank">微信支付文档</a></p>
+				<hr>
+				<!--微信支付API-->
+				<h3 id="wechat_api"> 微信支付API</h3>
+				<ul style="font-weight: bold">
+					<li><a href="#UnifiedOrder">统一下单：</a>client.UnifiedOrder()
+						<ul>
+							<li>JSAPI - JSAPI支付</li>
+							<li>JSAPI - 微信小程序支付</li>
+							<li>NATIVE - Native支付</li>
+							<li>APP - App支付</li>
+							<li>MWEB - H5支付</li>
+						</ul>
+					</li>
+					<li><a href="#Micropay">提交付款码支付：</a>client.Micropay()</li>
+					<li><a href="#QueryOrder">查询订单：</a>client.QueryOrder()</li>
+					<li><a href="#CloseOrder">关闭订单：</a>client.CloseOrder()</li>
+					<li><a href="#Reverse">撤销订单：</a>client.Reverse()</li>
+					<li><a href="#Refund">申请退款：</a>client.Refund()</li>
+					<li><a href="#QueryRefund">查询退款：</a>client.QueryRefund()</li>
+					<li><a href="#DownloadBill">下载对账单：</a>client.DownloadBill()</li>
+					<li><a href="#DownloadFundFlow">下载资金账单：</a>client.DownloadFundFlow()</li>
+					<li><a href="#BatchQueryComment">拉取订单评价数据：</a>client.BatchQueryComment()</li>
 				</ul>
-				<p> The following customization options are available in Opineo:</p>
-				<h3 id="view_type"> View Type</h3>
-				<ul>
-					<li>Detailed View</li>
+				<!--				<hr>-->
+				<!--				<ul>-->
+				<!--					<li>Compact View</li>-->
+				<!--				</ul>-->
+				<!--				<pre><code class="language-sql">select * from prop_property where property_name like '%鱼%';</code></pre>-->
+				<!--				<ul>-->
+				<!--					<li>Mini View</li>-->
+				<!--				</ul>-->
+				<!--				<pre class="line-numbers"><code class="language-go">//格式化分钟时间为 *天*小时*分钟-->
+				<!--func FormatMinutTime(minute int) (timeStr string) {-->
+				<!--	var (-->
+				<!--		dayInt    int-->
+				<!--		hourInt   int-->
+				<!--		minuteInt int-->
+				<!--	)-->
+				<!--	if minute == 0 {-->
+				<!--		return "0分钟"-->
+				<!--	}-->
+				<!--	dayInt = minute / 1440-->
+				<!--	if dayInt > 0 {-->
+				<!--		newMinute := minute - 1440*dayInt-->
+				<!--		hourInt = newMinute / 60-->
+				<!--		if hourInt > 0 {-->
+				<!--			minuteInt = newMinute - hourInt*60-->
+				<!--		} else {-->
+				<!--			minuteInt = newMinute-->
+				<!--		}-->
+				<!--	} else {-->
+				<!--		hourInt = minute / 60-->
+				<!--		if hourInt > 0 {-->
+				<!--			minuteInt = minute - hourInt*60-->
+				<!--		} else {-->
+				<!--			minuteInt = minute-->
+				<!--		}-->
+				<!--	}-->
+				<!--	buffer := new(bytes.Buffer)-->
+				<!--	if dayInt > 0 {-->
+				<!--		buffer.WriteString(Int2String(dayInt) + "天")-->
+				<!--	}-->
+				<!--	if hourInt > 0 {-->
+				<!--		buffer.WriteString(Int2String(hourInt) + "小时")-->
+				<!--	}-->
+				<!--	if minuteInt > 0 {-->
+				<!--		buffer.WriteString(Int2String(minuteInt) + "分钟")-->
+				<!--	}-->
+				<!--	timeStr = buffer.String()-->
+				<!--	return-->
+				<!--}</code></pre>-->
+				<hr>
+				<!--GoPay微信公共API-->
+				<h3 id="gopay_wechat_api"> GoPay微信公共API</h3>
+				<ul style="font-weight: bold">
+					<li><a href="#ParseNotifyResult">解析并返回微信支付异步通知的参数：</a>gopay.ParseNotifyResult()</li>
+					<li><a href="#VerifyPayResultSign">微信支付异步通知的签名验证和返回参数验签后的Sign：</a>gopay.VerifyPayResultSign()</li>
+					<li><a href="#Code2Session">登录凭证校验：获取微信用户OpenId、UnionId、SessionKey：</a>gopay.Code2Session()</li>
+					<li><a href="#GetAccessToken">获取小程序全局唯一后台接口调用凭据：</a>gopay.GetAccessToken()</li>
+					<li><a href="#GetPaidUnionId">用户支付完成后，获取该用户的 UnionId，无需用户授权：</a>gopay.GetPaidUnionId()</li>
+					<li><a href="#GetWeChatUserInfo">微信公众号：获取用户基本信息(UnionID机制)：</a>gopay.GetWeChatUserInfo()</li>
+					<li><a href="#DecryptOpenDataToStruct">将“加密数据”解密到指定结构体：</a>gopay.DecryptOpenDataToStruct()</li>
 				</ul>
 
-				<pre class="line-numbers"><code class="language-go">//获取随机字符串
-//    length：字符串长度
-func GetRandomString(length int) string {
-	str := "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
-	bytes := []byte(str)
-	var result []byte
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	for i := 0; i < length; i++ {
-		result = append(result, bytes[r.Intn(len(bytes))])
-	}
-	return string(result)
-}</code></pre>
-				<ul>
-					<li>Compact View</li>
-				</ul>
-				<pre><code class="language-sql">select * from prop_property where property_name like '%鱼%';</code></pre>
-				<ul>
-					<li>Mini View</li>
-				</ul>
-				<pre class="line-numbers"><code class="language-go">//格式化分钟时间为 *天*小时*分钟
-func FormatMinutTime(minute int) (timeStr string) {
-	var (
-		dayInt    int
-		hourInt   int
-		minuteInt int
-	)
-	if minute == 0 {
-		return "0分钟"
-	}
-	dayInt = minute / 1440
-	if dayInt > 0 {
-		newMinute := minute - 1440*dayInt
-		hourInt = newMinute / 60
-		if hourInt > 0 {
-			minuteInt = newMinute - hourInt*60
-		} else {
-			minuteInt = newMinute
-		}
-	} else {
-		hourInt = minute / 60
-		if hourInt > 0 {
-			minuteInt = minute - hourInt*60
-		} else {
-			minuteInt = minute
-		}
-	}
-	buffer := new(bytes.Buffer)
-	if dayInt > 0 {
-		buffer.WriteString(Int2String(dayInt) + "天")
-	}
-	if hourInt > 0 {
-		buffer.WriteString(Int2String(hourInt) + "小时")
-	}
-	if minuteInt > 0 {
-		buffer.WriteString(Int2String(minuteInt) + "分钟")
-	}
-	timeStr = buffer.String()
-	return
-}</code></pre>
 				<h3 id="animation_style"> Animation Style</h3>
 				<ul>
 					<li>Slow</li>
