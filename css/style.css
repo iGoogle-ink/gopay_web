@@ -429,7 +429,7 @@ input:focus {
     .docs-nav {
         position: absolute;
         top: 0;
-        width: 220px;
+        width: 250px;
 
         -webkit-transition: top linear 50ms;
         -moz-transition: top linear 50ms;
@@ -440,7 +440,7 @@ input:focus {
     .docs-nav.fixed {
         position: fixed;
         top: 49px;
-        width: 220px;
+        width: 250px;
     }
 
     .docs-nav a:hover {
